@@ -15,16 +15,17 @@ if (nombreUsuario) {
 // Cargar productos desde JSON y mostrarlos
 async function cargarProductosDesdeAPI() {
   try {
-    const response = await fetch("/data/productos.json");
+    const response = await fetch("http://localhost:3000/api/products");
     const data = await response.json();
 
-    productos = data.filter(p => p.activo);
+    productos = data.filter(p => p.esta_activo); // ← asegúrate de que tu campo activo sea este
     mostrarProductos(productos);
     mostrarCarrito(); // para mostrar botón "Continuar" si hay productos
   } catch (error) {
-    console.error("Error al cargar productos:", error);
+    console.error("Error al cargar productos desde API:", error);
   }
 }
+
 
 function mostrarProductos(array) {
   if (!contenedorProductos) return;
@@ -33,7 +34,7 @@ function mostrarProductos(array) {
   array.forEach(producto => {
     html += `
       <div class="card-producto">
-        <img src=${producto.img} alt="imagen-${producto.nombre}">
+        <img src=${producto.imagen} alt="imagen-${producto.nombre}">
         <h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
         <button onclick="agregarCarrito(${producto.id})">Agregar a carrito</button>

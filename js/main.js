@@ -1,3 +1,4 @@
+
 const inputNombre = document.getElementById("input-name");
 const aContinuar = document.getElementById("button-name");
 const divError = document.querySelector(".enviar-nombre");
@@ -38,3 +39,7 @@ aContinuar.addEventListener("click", (e) => {
         window.location.href = "index.html";
     }
 });
+
+
+
+

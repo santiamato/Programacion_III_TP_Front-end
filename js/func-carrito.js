@@ -59,6 +59,7 @@ function agregarCarrito(id) {
         producto.cantidad = 1;
         carritoProductos.push(producto);
     }
+    localStorage.setItem("carrito", JSON.stringify(carritoProductos));
 
     mostrarCarrito();
 }

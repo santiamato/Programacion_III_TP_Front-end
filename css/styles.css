@@ -289,3 +289,28 @@ header {
 
 
 
+.logo img {
+      height: 150px;
+    }
+
+    .botones-inicio {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .botones-inicio button {
+      padding: 12px 25px;
+      font-size: 18px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .botones-inicio button:hover {
+      background-color: #444;
+    }
