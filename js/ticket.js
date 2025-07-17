@@ -1,5 +1,7 @@
+
+
 function mostrarTicket() {
-  const nombre = localStorage.getItem("clienteNombre");
+  const nombre = localStorage.getItem("nombreUsuario");
   const carrito = JSON.parse(localStorage.getItem("Carrito")) || [];
   const total = parseFloat(localStorage.getItem("Total")) || 0;
   const fecha = new Date().toLocaleString("es-AR");

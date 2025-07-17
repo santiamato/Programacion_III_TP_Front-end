@@ -12,7 +12,7 @@ async function confirmarCompra() {
     return;
   }
 
-  const clienteNombre = localStorage.getItem("clienteNombre") || "Invitado";
+ const clienteNombre = localStorage.getItem("nombreUsuario") || "Invitado";;
 
   const total = carrito.reduce(
     (acc, p) => acc + p.precio * (p.cantidad || 1),

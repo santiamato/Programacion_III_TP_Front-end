@@ -7,7 +7,7 @@ const btnVinilos = document.getElementById("mostrar-vinilos");
 const btnDiscos = document.getElementById("mostrar-discos");
 
 // Mostrar nombre guardado
-const usuario = localStorage.getItem("clienteNombre");
+const usuario = localStorage.getItem("nombreUsuario");
 if (nombreUsuario) {
   nombreUsuario.textContent = `Hola ${usuario}!!`;
 }
@@ -18,9 +18,9 @@ async function cargarProductosDesdeAPI() {
     const response = await fetch("http://localhost:3000/api/products");
     const data = await response.json();
 
-    productos = data.filter(p => p.esta_activo); // ← asegúrate de que tu campo activo sea este
+    productos = data.filter(p => p.esta_activo); 
     mostrarProductos(productos);
-    mostrarCarrito(); // para mostrar botón "Continuar" si hay productos
+    mostrarCarrito();
   } catch (error) {
     console.error("Error al cargar productos desde API:", error);
   }
@@ -45,17 +45,17 @@ function mostrarProductos(array) {
 }
 
 // Filtrar por tipo
-function filtrarPorTipo(tipo) {
-  const filtrados = productos.filter(p => p.tipo === tipo);
+function filtrarPorTipo(categoria) {
+  const filtrados = productos.filter(p => p.categoria === categoria);
   mostrarProductos(filtrados);
 }
 
 // Eventos para botones
 if (btnVinilos) {
-  btnVinilos.addEventListener("click", () => filtrarPorTipo("vinilo"));
+  btnVinilos.addEventListener("click", () => filtrarPorTipo("Vinilo"));
 }
 if (btnDiscos) {
-  btnDiscos.addEventListener("click", () => filtrarPorTipo("disco"));
+  btnDiscos.addEventListener("click", () => filtrarPorTipo("Disco"));
 }
 
 function init() {
